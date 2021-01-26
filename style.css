@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+:root {
+    --main-color: #8b3e55;
+}
+
+body{
+    background-color: var(--main-color);
+    height: 100vh;
+}
+
+.dropdown{
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+
+}
+
+.projects, 
+.skills {
+    position: relative;
+    
+}
+
+.projects ul , .skills ul{
+    position: absolute;
+    background: #fff;
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all .4s ease;;
+}
+
+
+.projects a, .skills a{
+    color: #000;
+    text-decoration: none;
+}
+
+.projects li, 
+.skills li{
+    width: 100%;
+    height: 100%;
+    /*display flex to center child elements*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.projects li:hover, 
+.skills li:hover{
+    background-color: var(--main-color);
+
+}
+
+.dropdown button,
+.home{
+    background: none;
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.dropdown button:hover,
+.home:hover{
+    color:rgb(192, 192, 192);
+}
+
+/*dropdown w/out javascript using focus property*/
+/*affect element below the button when clicked using '+'*/
+/* = add styling to the ul when we focus on the button*/
+
+
+
+.projects button:focus + ul,
+.skills button:focus + ul
+{
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+
+
+
+@media only screen and (max-width: 400px){
+    
+    .dropdown{
+        margin: 0px;
+        width: 100%;
+
+        
+    }
+    .projects ul , .skills ul{
+        position: fixed;
+        left: 30%;
+        top: 10vh;
+        margin: auto;
+        z-index: 13;
+        opacity: 0;
+    }
+}
